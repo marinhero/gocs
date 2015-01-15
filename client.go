@@ -1,9 +1,9 @@
 /*
-** net_utils.go
+** client.go
 ** Author: Marin Alcaraz
 ** Mail   <marin.alcaraz@gmail.com>
-** Started on  Wed Jan 14 12:20:17 2015 Marin Alcaraz
-** Last update Wed Jan 14 17:54:26 2015 Marin Alcaraz
+** Started on  Thu Jan 15 12:13:09 2015 Marin Alcaraz
+** Last update Thu Jan 15 12:14:53 2015 Marin Alcaraz
  */
 
 package main
@@ -12,6 +12,15 @@ import (
 	"fmt"
 	"net"
 )
+
+func initClient(server, port string) error {
+	c, err := connect(server, port)
+	err = interact(c)
+	if err != nil {
+		return err
+	}
+	return nil
+}
 
 func connect(s string, p string) (con net.Conn, err error) {
 	connectionString := s + ":" + string(p)
