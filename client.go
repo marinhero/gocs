@@ -3,7 +3,7 @@
 ** Author: Marin Alcaraz
 ** Mail   <marin.alcaraz@gmail.com>
 ** Started on  Thu Jan 15 12:13:09 2015 Marin Alcaraz
-** Last update Thu Jan 15 12:14:53 2015 Marin Alcaraz
+** Last update Tue Jan 20 18:28:43 2015 Marin Alcaraz
  */
 
 package main
@@ -52,7 +52,7 @@ func interact(con net.Conn) error {
 			//Send to server
 			_, err = con.Write([]byte(request))
 			//Valid terminated string
-			_, err = con.Write([]byte("\r\n"))
+			_, err = con.Write([]byte("\r"))
 		}
 		if err != nil {
 			return fmt.Errorf("Interact error: %s", err)
